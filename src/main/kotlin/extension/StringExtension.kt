@@ -78,10 +78,12 @@ fun String.saveModel(classifier: FilteredClassifier) {
 
 fun String?.saveArff(dataset: Instances?) {
     try {
-        val arffSaverInstance = ArffSaver()
-        arffSaverInstance.instances = dataset
-        arffSaverInstance.setFile(File(this))
-        arffSaverInstance.writeBatch()
+        val path = this
+        ArffSaver().apply {
+            instances = dataset
+            setFile(File(path))
+            writeBatch()
+        }
     } catch (e: IOException) {
         println(e.message)
     }
