@@ -5,7 +5,7 @@ import extension.saveModel
 import java.io.File
 
 fun main(args: Array<String>) {
-        val textClassifier = TextClassifier()
+    val textClassifier = TextClassifier()
     val model = "data_model.dat"
 
     if (File(model).exists()) {
